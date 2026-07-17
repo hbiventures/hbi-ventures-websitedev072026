@@ -1,0 +1,24 @@
+import type { Metadata } from "next";
+import { SiteFooter, SiteHeader } from "../components/SiteHeader";
+
+export const metadata: Metadata = { title: "Innovation Portfolio | HBI Ventures", description: "Ideas, prototypes, programs, and partnerships that bring emerging technology, education, and community impact together." };
+
+const projects = [
+  ["Sports Technology & Human Performance","Collaborative programs spanning sports medicine, sensors, performance analytics, digital health, and athlete development.",["IoT","Analytics","Wearables"]],
+  ["Smart Cities & Connected Communities","Concepts around mobility, connected infrastructure, public services, community engagement, and data-driven decisions.",["Smart Cities","Mobility","Data"]],
+  ["Personalized Wellness Applications","Sensor-enabled, cloud-connected concepts incorporating heart-rate and galvanic-skin-response data, privacy, and UX.",["Digital Health","Cloud","Sensors"]],
+  ["AI Business Assistants","Applied conversational AI for customer service, lead capture, information access, and small-business productivity.",["Generative AI","Automation","SMB"]],
+];
+
+const stories = [
+  ["Featured conversation","An interdisciplinary approach to STEAM education","See how HBI connects education, technology, industry knowledge, and real-world problem solving to help students envision future STEAM careers.","hwvL2Z223rg"],
+  ["Partner spotlight","Soccer IQ Institute: innovation through sport","Explore the connection between youth development, sports technology, connected devices, data-informed performance, and inclusive innovation.","zdBmtdo4v7Q"],
+];
+
+export default function PortfolioPage(){return <main><SiteHeader/><div id="main-content">
+  <section className="subpage-hero portfolio-hero"><div><p className="eyebrow"><span>●</span> Innovation portfolio</p><h1>Ideas in motion.<br /><em>Impact in view.</em></h1></div><p>HBI’s portfolio shows how emerging technology, education, and community impact come together around authentic challenges.</p><div className="hero-index">WORK</div></section>
+  <section className="portfolio-feature"><div className="portfolio-image"><img src="/acrb-ai-project.png" alt="ACRB student AI project presentation"/><span>AI · CIVIC TECH · UX</span></div><div><p className="eyebrow dark-eyebrow"><span>●</span> Featured project</p><h2>Atlanta Citizen Review Board AI concept</h2><p>Student-led exploration of artificial intelligence, accessibility, user experience, and civic engagement.</p><a href="/steam-academy">See the learning model <span>↗</span></a></div></section>
+  <section className="project-section"><div className="section-heading light-heading"><div><p className="eyebrow"><span>●</span> Applied innovation</p><h2>Across sectors.<br />Around people.</h2></div><p>Each project connects technology choices to a real user, a real context, and an outcome worth measuring.</p></div><div className="project-grid">{projects.map(([t,c,tags],i)=><article key={t as string}><b>0{i+1}</b><h3>{t as string}</h3><p>{c as string}</p><div>{(tags as string[]).map(tag=><span key={tag}>{tag}</span>)}</div></article>)}</div></section>
+  <section className="stories-showcase"><div className="section-heading"><div><p className="eyebrow dark-eyebrow"><span>●</span> HBI in action</p><h2>See the learning and collaboration come to life.</h2></div><p>Hear how interdisciplinary learning and strategic partnerships create meaningful pathways into technology, creativity, and innovation.</p></div><div className="story-video-grid">{stories.map(([label,title,copy,videoId])=><article key={videoId}><a className="story-video" href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer" aria-label={`Watch ${title} on YouTube`}><img src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} alt={`${title} video preview`}/><span>▶</span></a><small>{label}</small><h3>{title}</h3><p>{copy}</p><a className="story-link" href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer">Watch on YouTube <span>↗</span></a></article>)}</div></section>
+  <section className="video-section"><div><p className="eyebrow dark-eyebrow"><span>●</span> Partner spotlight</p><h2>Metric Mate and sports-performance innovation.</h2><p>Performance technology, athlete assessments, and applied analytics support HBI’s sports-technology, digital-health, and student pathways.</p><a href="https://youtu.be/U9mMioFsEB0?si=uBhLv_DAGIAqyc4c" target="_blank" rel="noopener noreferrer">Watch on YouTube <span>↗</span></a></div><a className="video-card" href="https://youtu.be/U9mMioFsEB0?si=uBhLv_DAGIAqyc4c" target="_blank" rel="noopener noreferrer" aria-label="Watch Metric Mate video on YouTube"><img src="https://img.youtube.com/vi/U9mMioFsEB0/hqdefault.jpg" alt="Metric Mate video preview"/><span>▶</span></a></section>
+  </div><SiteFooter/></main>}

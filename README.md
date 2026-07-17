@@ -1,19 +1,40 @@
 # HBI Ventures Website
 
-A static, multi-page website designed for deployment to Vercel and Network Solutions.
+Production-ready multi-page website for HBI Ventures, built with Next.js and configured for Vercel.
 
-## Vercel
-Upload the contents of this folder to the root of the GitHub repository. Vercel should automatically detect it as a static site because `index.html` is in the repository root. No framework preset is required.
+## Publish with GitHub and Vercel
 
-## Network Solutions
-Upload all files and folders to the public web directory. The PHP contact form requires Linux hosting with PHP mail enabled.
+1. Create a new empty GitHub repository.
+2. Upload every file and folder from this package to the repository root.
+3. In Vercel, choose **Add New → Project** and import the GitHub repository.
+4. Leave the detected framework as **Next.js** and select **Deploy**.
+5. After deployment, add `hbiventures.com` and `www.hbiventures.com` under the project’s Domains settings.
+6. Update the domain’s DNS records using the values Vercel provides.
 
-### Contact form
-- Destination: `info@hbiventures.com`
-- Sender: `website@hbiventures.com`
-- Reply-To: visitor email
+The included `vercel.json` and package scripts already contain the correct build settings.
 
-Before launch, create `website@hbiventures.com` or change the From address in `contact-handler.php` to an existing domain mailbox. Confirm SPF/DKIM settings with Network Solutions for reliable delivery.
+## Pages
 
-## Important
-Vercel does not run traditional PHP. The contact form can be visually tested on Vercel, but submission must be tested on Network Solutions Linux hosting.
+- Home
+- About
+- HBI STEAM Academy
+- HBI Innovation Foundry
+- HBI Foundation
+- Innovation Portfolio
+- Partner Network
+- Contact
+
+## Contact form
+
+The contact form prepares a complete email to `info@hbiventures.com` in the visitor’s email application. It does not require PHP, a database, or additional Vercel configuration.
+
+## Local preview
+
+Requires Node.js 22 or newer.
+
+```bash
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
